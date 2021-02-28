@@ -9,7 +9,9 @@ class Product
     private string $code;
     private string $name;
     private int $quantity;
-    private ?Money $price;
+    private string $price;
+    private string $currency;
+    private ?Money $money;
 
     public function getCode(): string
     {
@@ -41,14 +43,34 @@ class Product
         $this->quantity = $quantity;
     }
 
-    public function getPrice(): ?Money
+    public function getPrice(): string
     {
         return $this->price;
     }
 
-    public function setPrice(Money $price): void
+    public function setPrice(string $price): void
     {
         $this->price = $price;
+    }
+
+    public function getCurrency(): string
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency(string $currency): void
+    {
+        $this->currency = $currency;
+    }
+
+    public function getMoney(): ?Money
+    {
+        return $this->money;
+    }
+
+    public function setMoney(?Money $money): void
+    {
+        $this->money = $money;
     }
 
 }
