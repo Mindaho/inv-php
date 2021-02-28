@@ -2,7 +2,8 @@
 
 namespace App\Model;
 
-use App\Currency\Money;
+use App\Constants\Constants;
+use App\Currencies\Money;
 
 class Product
 {
@@ -73,4 +74,29 @@ class Product
         $this->money = $money;
     }
 
+    public function isValid(): bool
+    {
+        if (empty($this->getCode())) {
+            return false;
+        }
+        if (empty($this->getName())) {
+            return false;
+        }
+        if (empty($this->getQuantity())) {
+            return false;
+        }
+
+        if ($this->getQuantity() < 0) {
+            return true;
+        }
+
+        if (!in_array($this->getCurrency(), Constants::SUPPORTED_CURRENCIES)) {
+            return false;
+        }
+        if (!preg_match(Constants::CURRENCY_VALIDATION_REGEX, $this->getPrice())) {
+            return false;
+        }
+
+        return true;
+    }
 }

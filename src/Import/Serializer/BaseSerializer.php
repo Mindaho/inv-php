@@ -5,7 +5,7 @@ namespace App\Import\Serializer;
 class BaseSerializer implements SerializerInterface
 {
     /**
-     * Generic array deserializer by using 'set' methods of provided class
+     * Super generic array deserializer which uses 'set' methods of provided class.
      *
      * @return mixed
      * @throws \ErrorException

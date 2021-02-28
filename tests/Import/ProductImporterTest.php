@@ -3,6 +3,7 @@
 use App\Import\Converter\CsvToArray;
 use App\Import\Importer;
 use App\Import\ProductImport;
+use App\Model\Product;
 use PHPUnit\Framework\TestCase;
 use \App\Import\Serializer\BaseSerializer;
 
@@ -34,6 +35,13 @@ class ProductImporterTest extends TestCase
         $this->assertEquals(8, $results[3]->getQuantity());
         $this->assertEquals('60.33', $results[3]->getPrice());
         $this->assertEquals('USD', $results[3]->getCurrency());
+
+        /**
+         * @var Product $product
+         */
+        foreach ($results as $product) {
+            $this->assertTrue($product->isValid());
+        }
     }
 
     protected function tearDown(): void
