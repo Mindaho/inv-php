@@ -4,20 +4,20 @@ namespace App\Model;
 
 class Cart
 {
-    private array $orderItems;
+    private array $cartItems;
 
     public function __construct(Product ...$product)
     {
-        $this->orderItems = $product;
+        $this->cartItems = $product;
     }
 
     public function add(Product $product): void
     {
-        $this->orderItems[] = $product;
+        $this->cartItems[] = $product;
     }
 
     public function all(): array
     {
-        return $this->orderItems;
+        return $this->cartItems;
     }
 }
