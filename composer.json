@@ -15,6 +15,7 @@
     "phpunit/phpunit": "^9.5"
   },
   "require": {
-    "ext-bcmath": "*"
+    "ext-bcmath": "*",
+    "ext-json": "*"
   }
 }
