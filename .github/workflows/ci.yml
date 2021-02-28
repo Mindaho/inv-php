@@ -8,9 +8,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: php-actions/composer@v5
-      - name: PHPUnit Tests
-        uses: php-actions/phpunit@v2
+
+      - name: Setup PHP with PECL extension
+        uses: shivammathur/setup-php@v2
         with:
-          bootstrap: vendor/autoload.php
-          configuration: phpunit.xml
+          php-version: '7.4'
+          extensions: bcmath
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: |
+          composer install --no-progress --prefer-dist --optimize-autoloader
+          composer require --dev phpunit/phpunit
+
+      - name: Test with phpunit
+        run: vendor/bin/phpunit

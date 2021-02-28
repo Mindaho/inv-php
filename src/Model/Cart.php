@@ -11,13 +11,17 @@ class Cart
         $this->cartItems = $product;
     }
 
-    public function add(Product $product): void
+    public function add(Product ...$products): void
     {
-        $this->cartItems[] = $product;
+        foreach ($products as $product) {
+            $this->cartItems[] = $product;
+        }
     }
 
     public function all(): array
     {
         return $this->cartItems;
     }
+
+    //@TODO add remove functionality
 }

@@ -10,8 +10,8 @@ class CartTest extends TestCase
     {
         $cart = new Cart(new Product(), new Product());
 
-        $cart->add(new Product());
+        $cart->add(new Product(), new Product());
 
-        $this->assertCount(3, $cart->all());
+        $this->assertCount(4, $cart->all());
     }
 }
