@@ -1,0 +1,16 @@
+{
+  "name": "mindaho/inv",
+  "authors": [
+    {
+      "name": "Mindaugas",
+      "email": "mindaho6@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+  }
+}
